@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+  "name": "Send to Outline",
+  "version": "1.0",
+
+  "description": "Sends the reader to the same article on https://outline.com",
+  "icons": {
+    "48": "icons/md-arrow-round-forward.svg",
+    "96": "icons/md-arrow-round-forward.svg"
+  },
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "browser_action": {
+    "default_icon": {
+      "16": "icons/page-16.png",
+      "32": "icons/page-32.png"
+    }
+  },
+
+  "permissions": [
+    "tabs"
+  ]
+}
