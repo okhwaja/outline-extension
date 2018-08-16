@@ -8,6 +8,14 @@ I'm not affiliated with the team at all, just wanted to use their extension in F
 
 In the Firefox gallery: https://addons.mozilla.org/en-US/firefox/addon/send-to-outline/
 
+# Usage
+
+Click the toolbar icon (looks like a piece of paper) and a new tab will open with your article
+
 # License
 
 Code is MIT Licensed
+
+# Credits
+
+The toolbar and Firefox gallery icon is from the [bitsies! iconset](https://www.iconfinder.com/iconsets/bitsies) by Recep Kütük
