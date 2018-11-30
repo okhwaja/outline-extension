@@ -30,3 +30,19 @@ function findOutlineUrl(currentUrl) {
 }
 
 browser.browserAction.onClicked.addListener(openPage);
+
+browser.contextMenus.create({
+  id: "open-link-in-outline",
+  title: "Open Link in Outline",
+  contexts: ["link"]
+});
+
+browser.contextMenus.onClicked.addListener((info, tab) => {
+  if (info.menuItemId === "open-link-in-outline") {
+      findOutlineUrl(info.linkUrl)
+      .then(openOutlineUrl)
+      .catch(function(err) {
+        console.err('Dang, your request failed', err)
+      });
+  }
+});
