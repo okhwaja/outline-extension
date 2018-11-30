@@ -19,7 +19,8 @@ function updateCurrentTab() {
 }
 
 function openPage(e) {
-  findCurrentUrl(e)
+    updateCurrentTab()
+    .then(() => findCurrentUrl(e))
     .then(findOutlineUrl)
     .then(openOutlineUrl)
     .catch(function(err) {
