@@ -1,21 +1,24 @@
 let currentTabIndex = undefined;
 
 function updateCurrentTab() {
-    let query = {
-        active: true,
-        currentWindow: true,
-    };
-    browser.tabs.query(query).then(
-        (tabs) => {
-            if (tabs.length > 0) {
-                currentTabIndex = tabs[0].index;
-            }
+  return new Promise((resolve, reject) => {
+    const query = {
+      active: true,
+      currentWindow: true
+    }
+    browser.tabs.query(query)
+      .then((tabs) => {
+        if (tabs.length > 0) {
+          currentTabIndex = tabs[0].index
+          resolve()
+        } else {
+            reject()
         }
-    );
+      })
+  })
 }
 
 function openPage(e) {
-  updateCurrentTab()
   findCurrentUrl(e)
     .then(findOutlineUrl)
     .then(openOutlineUrl)
@@ -57,7 +60,8 @@ browser.contextMenus.create({
 
 browser.contextMenus.onClicked.addListener((info, tab) => {
   if (info.menuItemId === "open-link-in-outline") {
-      findOutlineUrl(info.linkUrl)
+      updateCurrentTab()
+          .then(() =>findOutlineUrl(info.linkUrl))
       .then(openOutlineUrl)
       .catch(function(err) {
         console.err('Dang, your request failed', err)
