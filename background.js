@@ -1,4 +1,21 @@
+let currentTabIndex = undefined;
+
+function updateCurrentTab() {
+    let query = {
+        active: true,
+        currentWindow: true,
+    };
+    browser.tabs.query(query).then(
+        (tabs) => {
+            if (tabs.length > 0) {
+                currentTabIndex = tabs[0].index;
+            }
+        }
+    );
+}
+
 function openPage(e) {
+  updateCurrentTab()
   findCurrentUrl(e)
     .then(findOutlineUrl)
     .then(openOutlineUrl)
@@ -9,7 +26,8 @@ function openPage(e) {
 
 function openOutlineUrl(url) {
   return browser.tabs.create({
-    url: url
+    url: url,
+    index: currentTabIndex + 1
   });
 }
 
