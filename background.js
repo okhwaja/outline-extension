@@ -15,7 +15,6 @@ function updateCurrentTab() {
 }
 
 function openPage(e) {
-  updateCurrentTab()
   findCurrentUrl(e)
     .then(findOutlineUrl)
     .then(openOutlineUrl)
@@ -36,6 +35,7 @@ function findCurrentUrl(event) {
 }
 
 function findOutlineUrl(currentUrl) {
+  updateCurrentTab()
   return Promise.resolve(`https://outline.com/${currentUrl}`)
 
   // harder way...
