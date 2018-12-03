@@ -8,9 +8,7 @@ function openPage(e) {
 }
 
 function openOutlineUrl(url) {
-  return browser.tabs.create({
-    url: url
-  });
+  return browser.tabs.update({url:url});
 }
 
 function findCurrentUrl(event) {
