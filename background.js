@@ -7,10 +7,29 @@ function openPage(e) {
     });
 }
 
+function currentTab() {
+  return Promise.resolve().then(function() {
+    const query = {
+      active: true,
+      currentWindow: true
+    }
+    return browser.tabs.query(query)
+  }).then(function(tabs) {
+    if (tabs.length > 0) {
+      return tabs[0].index
+    }
+
+    throw "No Active Tabs"
+  })
+}
+
 function openOutlineUrl(url) {
-  return browser.tabs.create({
-    url: url
-  });
+  return currentTab().then(function(currentTabIndex) {
+    return browser.tabs.create({
+      url: url,
+      index: currentTabIndex + 1
+    })
+  })
 }
 
 function findCurrentUrl(event) {
