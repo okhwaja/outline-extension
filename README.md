@@ -10,7 +10,11 @@ In the Firefox gallery: https://addons.mozilla.org/en-US/firefox/addon/send-to-o
 
 # Usage
 
+### via Toolbar
 Click the toolbar icon (looks like a piece of paper) and a new tab will open with your article
+
+### via right-click
+Right click on a link and select the "Open Link in Outline" option
 
 # License
 
