@@ -1,27 +1,34 @@
 {
-  "manifest_version": 2,
-  "name": "Send to Outline",
-  "version": "1.2.0",
+    "manifest_version": 2,
+    "strict_min_version": "67.0",
+    "name": "Send to Outline",
+    "version": "1.3.0",
 
-  "description": "Sends the reader to the same article on https://outline.com",
-  "icons": {
-    "48": "icons/md-arrow-round-forward.svg",
-    "96": "icons/md-arrow-round-forward.svg"
-  },
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "send-to@outline.com"
+        }
+    },
 
-  "background": {
-    "scripts": ["background.js"]
-  },
+    "description": "Sends the reader to the same article on https://outline.com",
+    "icons": {
+        "48": "icons/md-arrow-round-forward.svg",
+        "96": "icons/md-arrow-round-forward.svg"
+    },
 
-  "browser_action": {
-    "default_icon": {
-      "16": "icons/page-16.png",
-      "32": "icons/page-32.png"
-    }
-  },
+    "background": {
+        "scripts": ["background.js"]
+    },
 
-  "permissions": [
-    "tabs",
-    "contextMenus"
-  ]
+    "browser_action": {
+        "default_icon": {
+            "16": "icons/page-16.png",
+            "32": "icons/page-32.png"
+        }
+    },
+
+    "permissions": [
+        "tabs",
+        "contextMenus"
+    ]
 }

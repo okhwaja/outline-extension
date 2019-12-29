@@ -38,26 +38,18 @@ function findCurrentUrl(event) {
 
 function findOutlineUrl(currentUrl) {
   return Promise.resolve(`https://outline.com/${currentUrl}`)
-
-  // harder way...
-  // var myRequest = new Request(`https://outlineapi.com/parse_article?source_url=${currentUrl}`);
-  // return fetch(myRequest).then(function(response) {
-  //   return response.json();
-  // }).then(function(res) {
-  //   return `https://outline.com/${res.data.short_code}`;
-  // });
 }
 
 browser.browserAction.onClicked.addListener(openPage);
 
 browser.contextMenus.create({
-  id: "open-link-in-outline",
-  title: "Open Link in Outline",
+  id: "open-in-outline",
+  title: "Open in Outline",
   contexts: ["link"]
 });
 
 browser.contextMenus.onClicked.addListener((info, tab) => {
-  if (info.menuItemId === "open-link-in-outline") {
+  if (info.menuItemId === "open-in-outline") {
       findOutlineUrl(info.linkUrl)
       .then(openOutlineUrl)
       .catch(function(err) {
