@@ -36,8 +36,11 @@ function findCurrentUrl(event) {
   return Promise.resolve(event.url);
 }
 
-function findOutlineUrl(currentUrl) {
-  return Promise.resolve(`https://outline.com/${currentUrl}`)
+async function findOutlineUrl(currentUrl) {
+  const request = await fetch(`https://tinyurl.com/api-create.php?url=${currentUrl}`)
+
+  const shortUrl = await request.text();
+  return `https://outline.com/${shortUrl}`
 }
 
 browser.browserAction.onClicked.addListener(openPage);
