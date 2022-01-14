@@ -8,7 +8,7 @@ I'm not affiliated with the team at all, just wanted to use their extension in F
 
 # Installation
 
-In the Firefox gallery: https://addons.mozilla.org/en-US/firefox/addon/send-to-outline/
+In the Firefox gallery: https://addons.mozilla.org/firefox/addon/send-to-outline/
 
 # Supported Browsers
 
